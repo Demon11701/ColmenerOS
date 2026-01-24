@@ -11,8 +11,35 @@ export function ContactSection() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    // Aquí iría la lógica para enviar el formulario
+    
+    // Estructura el mensaje para WhatsApp
+    const message = `💬 *Nuevo Mensaje - ColmenerOS* 💬
+
+👤 *Datos del Cliente:*
+• Nombre: ${formData.name}
+• Email: ${formData.email}
+${formData.phone ? `• Teléfono: ${formData.phone}` : ''}
+
+📝 *Mensaje:*
+${formData.message}
+
+---
+_Enviado desde ColmenerOS Web - Formulario de Contacto_`;
+
+    // Encode el mensaje para URL
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappURL = `https://wa.me/527581211174?text=${encodedMessage}`;
+    
+    // Abre WhatsApp en nueva pestaña
+    window.open(whatsappURL, '_blank');
+    
+    // Resetea el formulario
+    setFormData({
+      name: '',
+      email: '',
+      phone: '',
+      message: ''
+    });
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
