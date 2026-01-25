@@ -1,17 +1,12 @@
-import { useState } from 'react';
-// Importamos los iconos necesarios (ya no usamos Laptop porque usaremos tu Logo real)
+import { HeroSection } from '@/app/components/HeroSection';
+import { ServicesSection } from '@/app/components/ServicesSection';
+import { PackagesSection } from '@/app/components/PackagesSection';
+import { AlaCarteSection } from '@/app/components/AlaCarteSection';
+import { PremiumSection } from '@/app/components/PremiumSection';
+import { ContactSection } from '@/app/components/ContactSection';
+import { Logo } from '@/app/components/Logo';
 import { Phone, Menu, X } from 'lucide-react';
-
-// ✅ CORRECCIÓN 1: Importamos desde la carpeta ./components/
-import { HeroSection } from './components/HeroSection';
-import { ServicesSection } from './components/ServicesSection';
-import { PackagesSection } from './components/PackagesSection';
-import { AlaCarteSection } from './components/AlaCarteSection';
-import { PremiumSection } from './components/PremiumSection';
-import { ContactSection } from './components/ContactSection';
-
-// ✅ CORRECCIÓN 2: Importamos tu Logo real desde su carpeta
-import { Logo } from './components/Logo';
+import { useState } from 'react';
 
 export default function App() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -23,7 +18,6 @@ export default function App() {
         <div className="container mx-auto px-4 sm:px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2 sm:gap-3">
-              {/* ✅ Usamos tu componente Logo original */}
               <Logo className="w-8 h-8 sm:w-10 sm:h-10" />
               <span className="text-white font-bold text-lg sm:text-xl">ColmenerOS</span>
             </div>
@@ -61,7 +55,7 @@ export default function App() {
 
           {/* Mobile Menu */}
           {isMobileMenuOpen && (
-            <div className="md:hidden mt-4 pb-4 space-y-4">
+            <div className="md:hidden mt-4 pb-4 space-y-4 animate-in fade-in slide-in-from-top-5 duration-300">
               <a 
                 href="#servicios" 
                 className="block text-gray-300 hover:text-cyan-400 transition-colors py-2"
@@ -130,7 +124,6 @@ export default function App() {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 mb-8">
             <div>
               <div className="flex items-center gap-2 mb-4">
-                {/* ✅ Usamos tu componente Logo original aquí también */}
                 <Logo className="w-8 h-8 sm:w-10 sm:h-10" />
                 <span className="text-white font-bold">ColmenerOS</span>
               </div>
